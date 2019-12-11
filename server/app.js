@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
+//load routes
 const StudentsRoutes = require('./routes/students');
+const TeacherRoutes = require('./routes/teachers');
 
 //database connection
 mongoose.connect(config.DB_URI, {
@@ -22,7 +24,9 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+//handle routes
 app.use('/api/v1/students', StudentsRoutes);
+app.use('/api/v1/teachers', TeacherRoutes);
 
 const PORT = process.env.PORT || 3001;
 

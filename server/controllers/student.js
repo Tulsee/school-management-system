@@ -10,7 +10,7 @@ const validateStudentInput = require('../validation/studentRegister')
 exports.register = (req, res) => {
     //let errors = [];
     const { errors, isValid}=validateStudentInput(req.body);
-
+ 
     //check validation
     if(!isValid){
         return res.status(400).json(errors);
